@@ -6,4 +6,8 @@ This is written onto a python notebook, which allows for flexibility and ease of
 
 ## Basic Ray Tracer Model
 
-Unlike traditional ray tracers 
+Most ray tracers are usually written in C/C++ due to their dependence on performance, however unlike traditional ray tracers we will not be worrying about objects which are reflective, diffuse, or refractive. This means that python would suffice as it is fast enough for the given task. Here in our model we will only have 4 objects that we are going to worry about, the location of the observer, the image, the blackhole, and the sky. 
+
+The similar to traditional ray tracers we are going to have the observer look towards the negative z axis, so normally the observer will have a positive z value lookin at the negative z direction. After the observer we have our image. The image is a plane at which 
+
+![image](https://github.com/ryannova/Raytracing_BH/blob/master/Output/1001x1001.png?raw=true)

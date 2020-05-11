@@ -10,7 +10,7 @@ Most ray tracers are usually written in C/C++ due to their dependence on perform
 
 The similar to traditional ray tracers we are going to have the observer look towards the negative z axis, so normally the observer will have a positive z value lookin at the negative z direction. After the observer we have our image. The image is a plane at we will construct ray originating from the observer to the image plane. Each point corresponds to 1 pixel. Currently the pixels are equivalent to 1 unit on the grid but a future iteration will allow for higher resolution, in which one unit would be subdivided into multiple pixels.
 ![Image showing how rays are generated(courtesy of UC Berkeley CS184)](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/ObserverRays.jpeg?raw=true)
-Image showing how rays are generated(courtesy of UC Berkeley CS184
+Image showing how rays are generated(courtesy of UC Berkeley CS184)
 
 The main obeject in focus is going to be the blackhole. It will be located after the image plane and before the sky plane. Now note that it is important the blackhole be located here or not the program will not work as it checks to see if there is any intersects with the blackhole first before checking the sky plane.
 
@@ -23,5 +23,6 @@ There were three steps taken to render the blackhole. First we had to ensure tha
 Here we are going to describe in greater detail about implementation of each of the components for the ray tracing such that if someone wishes to create their own this can be used as a guidance on how to create such a program.
 
 ### Rays and Observer
-I won't go into too much details on certain aspects of basic ray tracing. You can read up more on this in papers and documents regarding how ray tracing works. Now for our implementation, rays coordinates are descibed as 3D vectors. A ray can be defined by its origin and the a directional vector, such that a ray can be defined as 
-$ray = origin + direction * t$
+I won't go into too much details on certain aspects of basic ray tracing. You can read up more on this in papers and documents regarding how ray tracing works. Now for our implementation, rays coordinates are descibed as 3D vectors. A ray can be defined by its origin and the a directional vector, such that any point on a ray can be defined as ray = origin + direction * t. Usually t is refered to as time but in a basic calculation we can use t simply to traverse the ray in any direction. As for the sphere, note that most sphere are defined by an equation such as x^2 + y^2 + z^2 = radius but since we are only interested about intersections on the surface we can see that we can define as sphere as (p-c)^2 - R^2 = 0, where p is some surface point and c is the center of the sphere. To find an whether a ray intersects with a sphere we can first assume that we have a ray that intersects with our sphere. With this assumption we are able to substitute our ray equation for p, and solve for t where we get 
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/sphere_intersect.png?raw=true)
+

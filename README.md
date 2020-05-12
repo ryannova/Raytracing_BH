@@ -54,9 +54,15 @@ where the deflection angle alpha is defined as
 
 Using this we are able to create the size of the ring that we will be seeing and as such we have the size of the ring we will be observing. Finally to create the lensing effect we are able to simply redirect the ray once it has reach the lensing plane, which is located at where the blackhole is. By using the same plane equation we are able to determine where it intersect this plane. There can simply reflect it at the same angle of incident. This is true because assuming that all the light rays we are back tracing converge at the observer then the focal point is the location of the observer for all the light rays that are coming from the blackhole and as such we are able to see redirect it at the same angle. This will give us a lensing effect as shown in the following image.
 
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/Output/lensing_true.png?raw=true)
+
+Now we are also able to see what this lensing effect with the blackhole there. This would simply be using the same intersection code that we had from the previous part if we see that the ray intersects a portion of the blackhole itself, as seen below.
+
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/Output/lensing.png?raw=true)
 
-### Time Curvature
+### Spacetime Curvature
+
+Finally we have all the necessary background code to create a realistic image of blackhole lensing by looking at how much light bends from the curavture of spacetime due to gravity. As stated before we can see that the 
 
 ### Creating Animation
 

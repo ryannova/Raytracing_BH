@@ -1,6 +1,6 @@
 # Blackhole Ray Tracing
 
-![equation](https://github.com/ryannova/Raytracing_BH/blob/master/Output/out_long.gif?raw=true)
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/out_long_repeat.gif?raw=true)
 
 This blackhole ray tracer is used to demonstrate the distortion of light from warping of spacetime due to the gravity of blackholes.
 

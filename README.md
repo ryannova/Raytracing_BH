@@ -27,6 +27,8 @@ I won't go into too much details on certain aspects of basic ray tracing. You ca
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/sphere_intersect.png?raw=true)
 where 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/sphere_var.png?raw=true)
+
 Using this equation, all real solutions will represent an intersection of the ray with the sphere. Note that we have three cases where we have 0, 1, or 2 intersection points. In the interest of increasing performance we can see that instead of computing t for all rays we simply need the values under the square root. Note that if b^2 \< 4ac there are 0 intersects, b^2 = 4ac there is 1 intersect, and b^2 \> 4ac there are 2 intersects. We can check this condition before preceeding and if there isn't any intersect we can immediately look at any intersections with the sky plane. To find interections with the sky plane is realtively straight forward. Here we can see that we only need the plane's normal vector and a point on the plane to define a plane, such that (p^2 - p'^2) dot N = 0, where p is the intersection point from the ray, p' is a separate point on the plane, and N is the normal vector. Once again we can plug in our ray equation and solve for t and we can see that we have
+
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/plane_intersect.png?raw=true)
 

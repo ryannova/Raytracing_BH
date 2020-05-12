@@ -40,8 +40,21 @@ Finally, since we are only have a fixed size for our sky plane we can simply che
 Note that a size of a blackhole can simply be determined by its mass solely since we are assuming that the object has collapsed past its Schwarzschild radius (Rs = 2GM/c^2). Now it would naive to assume that we are simply going to render the blackhole by is Schwarzschild radius as photons that get very close to the blackhole is going to be essentially captured by the blackhole and these photons will continue in a stable or decaying orbit into the blackhole. To save on computation, instead of computing the orbits as we know that they these photons will not escape to reach the observer, we are able to just say that at these distances no photons will escape. Consequently this is described to be the photon sphere(Rp = 3GM/c^2) which is 3/2 times the Scwarzschild radius for non-rotating black holes, and we use this as the radius for our blackhole. This means that the dark circle we see in the simulation is not the Schwarzschild radius but is photon sphere. Something that should be note is that in many of these calculations the Schwarzschild radius or some factor of it will be within our calcaluation so it is recommended that this values is computed and saved to reduce computations.
 
 ### Lensing
+Given that we have a bound for the size of the blackhole we need to know where it will be distorting the light that we see coming in. Now note that in actuality we would light distortion gradually get weaker and weaker until it is not noticable, however if we are to apply this effect to all light rays it would create too large of a toll on the computation and thus causing the program to run between 3 to 10x slower. Given that the program already takes about 30mins to render a long animation this would cause it to run between 1.5-5hrs. As such to decrease the number of computations needed we can look at how gravitaional lensing is causes an effect which creates a ring around the blackhole. This ring is called an Einstein ring which has an angular size of 
+
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/angularSize.png?raw=true)
+
+This can be derived by looking at how the light is deflected based on the ratios between the source plane, blackhole plane, and observer plane as described in the diagram below
+
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/angularSizeDiagram.png?raw=true)
+
+where the deflection angle is defined as 
+
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/deflectionAngle.png?raw=true)
 
 ### Time Curvature
+
+### Creating Animation
 
 
 ## Future Goals

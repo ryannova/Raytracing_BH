@@ -37,9 +37,12 @@ Using this equation, all real solutions will represent an intersection of the ra
 Finally, since we are only have a fixed size for our sky plane we can simply check to see if the intersection with the plane lies within the coordinates of the sky plane and if it doesn't we set the pixel to be black.
 
 ### Blackhole Size Determination
-Note that a size of a blackhole can simply be determined by its mass solely since we are assuming that the object has collapsed past its Schwarzschild radius. Now it would 
+Note that a size of a blackhole can simply be determined by its mass solely since we are assuming that the object has collapsed past its Schwarzschild radius (Rs = 2GM/c^2). Now it would naive to assume that we are simply going to render the blackhole by is Schwarzschild radius as photons that get very close to the blackhole is going to be essentially captured by the blackhole and these photons will continue in a stable or decaying orbit into the blackhole. To save on computation, instead of computing the orbits as we know that they these photons will not escape to reach the observer, we are able to just say that at these distances no photons will escape. Consequently this is described to be the photon sphere(Rp = 3GM/c^2) which is 3/2 times the Scwarzschild radius for non-rotating black holes, and we use this as the radius for our blackhole. This means that the dark circle we see in the simulation is not the Schwarzschild radius but is photon sphere. Something that should be note is that in many of these calculations the Schwarzschild radius or some factor of it will be within our calcaluation so it is recommended that this values is computed and saved to reduce computations.
 
 ### Lensing
 
 ### Time Curvature
+
+
+## Future Goals
 

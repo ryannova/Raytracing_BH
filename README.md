@@ -1,5 +1,7 @@
 # Blackhole Ray Tracing
 
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/Output/out_long.gif?raw=true)
+
 This blackhole ray tracer is used to demonstrate the distortion of light from warping of spacetime due to the gravity of blackholes.
 
 This is written onto a python notebook, which allows for flexibility and ease of use. The notebook shows the process in which I took in writting up the blackhole ray tracer. First to start a basic ray tracing model is created through tracing light rays backwards from the persepctive of the observer. This greatly decreases the number of rays. Afterwards, three steps were taken. First was simply rendering an opaque sphere with the correct size, then a model using a thin convex lens, and finally bending of light rays due to spacetime distortions. This program simply renders a Schwarzschild Black Hole, which assumes the blackhole has no spin, zero magnetic field, or any charge, and is only characterized by its mass. Finally note that the current convention is that masses of the blackhole are in units of solar masses and the units of distance are solar radii.
@@ -31,4 +33,13 @@ where
 Using this equation, all real solutions will represent an intersection of the ray with the sphere. Note that we have three cases where we have 0, 1, or 2 intersection points. In the interest of increasing performance we can see that instead of computing t for all rays we simply need the values under the square root. Note that if b^2 \< 4ac there are 0 intersects, b^2 = 4ac there is 1 intersect, and b^2 \> 4ac there are 2 intersects. We can check this condition before preceeding and if there isn't any intersect we can immediately look at any intersections with the sky plane. To find interections with the sky plane is realtively straight forward. Here we can see that we only need the plane's normal vector and a point on the plane to define a plane, such that (p^2 - p'^2) dot N = 0, where p is the intersection point from the ray, p' is a separate point on the plane, and N is the normal vector. Once again we can plug in our ray equation and solve for t and we can see that we have
 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/plane_intersect.png?raw=true)
+
+Finally, since we are only have a fixed size for our sky plane we can simply check to see if the intersection with the plane lies within the coordinates of the sky plane and if it doesn't we set the pixel to be black.
+
+### Blackhole Size Determination
+Note that a size of a blackhole can simply be determined by its mass solely since we are assuming that the object has collapsed past its Schwarzschild radius. Now it would 
+
+### Lensing
+
+### Time Curvature
 

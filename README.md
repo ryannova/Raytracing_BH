@@ -52,7 +52,7 @@ where the deflection angle alpha is defined as
 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/deflectionAngle.png?raw=true)
 
-Using this we are able to create the size of the ring that we will be seeing and as such we have the size of the ring we will be observing. Finally to create the lensing effect we are able to simply redirect the ray once it has reach the lensing plane, which is located at where the blackhole is. By using the same plane equation we are able to determine where it intersect this plane. There can simply reflect it at the same angle of incident. This is true because assuming that all the light rays we are back tracing converge at the observer then the focal point is the location of the observer for all the light rays that are coming from the blackhole and as such we are able to see redirect it at the same angle. This will give us a lensing effect as shown in the following image.
+Using this we are able to create the size of the ring that we will be seeing and as such we have the size of the ring we will be observing. Finally to create the lensing effect we are able to simply redirect the ray once it has reach the lensing plane, which is located at where the blackhole is. By using the same plane equation we are able to determine where it intersect this plane. There can simply reflect it at the same angle of incident. This is true because assuming that all the light rays we are back tracing converge at the observer then the focal point is the location of the observer for all the light rays that are coming from the blackhole and as such we are able to see redirect it at the same angle. To accomplish this a new ray is created with its origin at the lens plane then the direction would be equal to direction of the redirected ray. This will give us a lensing effect as shown in the following image.
 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/Output/lensing_true.png?raw=true)
 
@@ -62,7 +62,15 @@ Now we are also able to see what this lensing effect with the blackhole there. T
 
 ### Spacetime Curvature
 
-Finally we have all the necessary background code to create a realistic image of blackhole lensing by looking at how much light bends from the curavture of spacetime due to gravity. As stated before we can see that the 
+Finally we have all the necessary background code to create a realistic image of blackhole lensing by looking at how much light bends from the curavture of spacetime due to gravity. As stated before we can see the incident light ray will be deflected by alpha as defined above. Then here we are able to compute the deflection angle for each individual ray. From this we are able to get an accurate representation of how rays are distorted by the blackhole. Now note that we are going to be only doing this for the area enclosed by the angularSize that is computed, as this is to help with computation. Now unlike previously we are able to create the directional ray of the same angle we have different angles for different rays. Looking at a 2D circle we can see that the incident ray would be coming with some impact parameter b. Then the angle deflected would be alpha given above. Now here what we can do is that we know the angle is going to be deflected along the plane where is it defined by the vector of the incoming ray and the vector pointing from the center of the circle to the point of deflection. The normal vector for this plane is the cross product of these two vectors. However instead of computing the cross product we can simply see that the direction of this new ray is given by cos(alpha) * ray - sin(alpha) * radial\_vector. You can see this in the diagram below
+
+![Diagram](https://github.com/ryannova/Raytracing_BH/blob/master/Output/?raw=true)
+
+Here we make the assumption that the radial vector is defined as the center point to the point of impact, but if you define it the other way around such that the vector is from the point of impact to the center point then we would add sin(alpha) * radial_vector instead. This is a very importan point to note because you will get 2 different results due to this sign error. You can see the difference in the two gif below. The first shows when you use the wrong sign and the second one is the actual result that you should get.
+
+![Diagram](https://github.com/ryannova/Raytracing_BH/blob/master/Output/sign_error/out_long.gif?raw=true)
+
+![Diagram](https://github.com/ryannova/Raytracing_BH/blob/master/Output/out_long.gif?raw=true)
 
 ### Creating Animation
 

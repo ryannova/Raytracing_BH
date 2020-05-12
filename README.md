@@ -40,7 +40,7 @@ Finally, since we are only have a fixed size for our sky plane we can simply che
 Note that a size of a blackhole can simply be determined by its mass solely since we are assuming that the object has collapsed past its Schwarzschild radius (Rs = 2GM/c^2). Now it would naive to assume that we are simply going to render the blackhole by is Schwarzschild radius as photons that get very close to the blackhole is going to be essentially captured by the blackhole and these photons will continue in a stable or decaying orbit into the blackhole. To save on computation, instead of computing the orbits as we know that they these photons will not escape to reach the observer, we are able to just say that at these distances no photons will escape. Consequently this is described to be the photon sphere(Rp = 3GM/c^2) which is 3/2 times the Scwarzschild radius for non-rotating black holes, and we use this as the radius for our blackhole. This means that the dark circle we see in the simulation is not the Schwarzschild radius but is photon sphere. Something that should be note is that in many of these calculations the Schwarzschild radius or some factor of it will be within our calcaluation so it is recommended that this values is computed and saved to reduce computations.
 
 ### Lensing
-Given that we have a bound for the size of the blackhole we need to know where it will be distorting the light that we see coming in. Now note that in actuality we would light distortion gradually get weaker and weaker until it is not noticable, however if we are to apply this effect to all light rays it would create too large of a toll on the computation and thus causing the program to run between 3 to 10x slower. Given that the program already takes about 30mins to render a long animation this would cause it to run between 1.5-5hrs. As such to decrease the number of computations needed we can look at how gravitaional lensing is causes an effect which creates a ring around the blackhole. This ring is called an Einstein ring which has an angular size of 
+Given that we have a bound for the size of the blackhole we need to know where it will be distorting the light that we see coming in. Now note that in actuality we would light distortion gradually get weaker and weaker until it is not noticable, however if we are to apply this effect to all light rays it would create too large of a toll on the computation and thus causing the program to run between 3 to 10x slower. Given that the program already takes about 30mins to render a long animation this would cause it to run between 1.5-5hrs. Now it is important to note that it is okay to give this distortion a hard bound because this distortion is caused by the gravitaional pull of the blackhole. Since the force of gravity is proportional to 1/R^2 we can see that it drops down very quickly.  As such to decrease the number of computations needed, we can look at how gravitaional lensing is causes an effect which creates a ring around the blackhole. This ring is called an Einstein ring which has an angular size of 
 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/angularSize.png?raw=true)
 
@@ -48,9 +48,13 @@ This can be derived by looking at how the light is deflected based on the ratios
 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/angularSizeDiagram.png?raw=true)
 
-where the deflection angle is defined as 
+where the deflection angle alpha is defined as 
 
 ![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/deflectionAngle.png?raw=true)
+
+Using this we are able to create the size of the ring that we will be seeing and as such we have the size of the ring we will be observing. Finally to create the lensing effect we are able to simply redirect the ray once it has reach the lensing plane, which is located at where the blackhole is. By using the same plane equation we are able to determine where it intersect this plane. There can simply reflect it at the same angle of incident. This is true because assuming that all the light rays we are back tracing converge at the observer then the focal point is the location of the observer for all the light rays that are coming from the blackhole and as such we are able to see redirect it at the same angle. This will give us a lensing effect as shown in the following image.
+
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/Output/lensing.png?raw=true)
 
 ### Time Curvature
 

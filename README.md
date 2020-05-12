@@ -68,9 +68,11 @@ Finally we have all the necessary background code to create a realistic image of
 
 Note that this equation is only true when both directional ray vector and the radial vector both have unit length, so be sure they are both unit vectors. Also here we make the assumption that the radial vector is defined as the center point to the point of impact, but if you define it the other way around such that the vector is from the point of impact to the center point then we would add sin(alpha) * radial_vector instead. This is a very importan point to note because you will get 2 different results due to this sign error. You can see the difference in the two gif below. The first shows when you use the wrong sign and the second one is the actual result that you should get.
 
-![Diagram](https://github.com/ryannova/Raytracing_BH/blob/master/Output/sign_error/out_long.gif?raw=true)
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/out_long_repeat_sign_error.gif?raw=true)
 
-![Diagram](https://github.com/ryannova/Raytracing_BH/blob/master/Output/out_long.gif?raw=true)
+![equation](https://github.com/ryannova/Raytracing_BH/blob/master/docImages/out_long_repeat.gif?raw=true)
+
+This approach of having different angles at which they are deflected is similar to how spacetime is warped. Some effects that we don't see is the bright ring that we would expect to see around the photon sphere. This is due to the fact that photons close to the photon sphere, though they escape it does take a longer time than photons which are farther apart. This means that it will cause photons to collect and this might this brighter ring around the photon sphere that is not seen in this simulation. These difference will be address in the future goals for this project.
 
 ### Creating Animation
 
